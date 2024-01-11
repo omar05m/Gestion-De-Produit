@@ -42,4 +42,17 @@ public class ProduitServiceTest {
         Produit duplicateProduct = new Produit(2, "dragon", 500.00, 6);
         produitService.ajouterProduit(duplicateProduct);
     }
+    @Test
+    public void testSupprimerProduit() {
+        Produit existingProduct = new Produit(1, "kayn", 20.0, 50);
+        produitService.ajouterProduit(existingProduct);
+        produitService.supprimerProduit(existingProduct);
+        assertFalse(produitService.produits.containsValue(existingProduct));
+    }
+    @Test
+    public void testSupprimerProduitNonExiste() {
+        Produit nonExistingProduct = new Produit(2, "makaynch", 5.0, 100);
+        produitService.supprimerProduit(nonExistingProduct);
+        assertFalse(produitService.produits.containsValue(nonExistingProduct));
+    }
 }
