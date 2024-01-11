@@ -31,4 +31,17 @@ public class ProduitService {
         }
 
     }
+
+    // afficher un seul produit
+    private void afficherProduit(Produit produit) {
+        System.out.println(produit);
+    }
+
+    // afficher tous les produits
+    public void afficherTousProduits() {
+        System.out.println("tous les produits :");
+        for (Produit produit : produits.values()) {
+            afficherProduit(produit);
+        }
+    }
 }
