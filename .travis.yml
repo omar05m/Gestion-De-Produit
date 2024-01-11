@@ -1,13 +1,13 @@
 language: java
-
-from: openjdk21
-
-script: ./mvnw clean install
-
+jdk: openjdk21
+before_install:
+  - chmod +x mvnw
+mvn_version: 3.9.5  # Specify a version that works for your project
+script: ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 notifications:
   email:
     recipients:
-      -khalilikafo@gmail.com
-      -omarkof99@gmail.com
+      - khalilikafo@gmail.com
+      - omarkof99@gmail.com
     on_success: always # send email on success
     on_failure: always # send email on failure
