@@ -57,4 +57,20 @@ public class ProduitService {
  	        System.err.println("Exception : " + e.getMessage());
  	    }
  	}
+ // modifier un produit
+ 	public void modifierProduit(Long id, Produit nouveauProduit) {
+ 		try {
+ 			if (!produits.containsKey(id)) {
+ 				throw new IllegalArgumentException("Le produit avec id " + id + " existe pas");
+ 			}
+ 			Produit produitExist = produits.get(id);
+ 			produitExist.setNom(nouveauProduit.getNom());
+ 			produitExist.setPrix(nouveauProduit.getPrix());
+ 			produitExist.setQte(nouveauProduit.getQte());
+
+ 			System.out.println("Le produit avec id " + id + " modifié ");
+ 		} catch (IllegalArgumentException e) {
+ 			System.err.println("Exception : " + e.getMessage());
+ 		}
+ 	}
 }
