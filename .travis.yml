@@ -1,5 +1,7 @@
 language: java
 jdk: openjdk21
+before_install:
+  - chmod +x mvnw
 mvn_version: 3.9.5  # Specify a version that works for your project
 script: ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 notifications:
