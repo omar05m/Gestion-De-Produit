@@ -55,4 +55,22 @@ public class ProduitServiceTest {
         produitService.supprimerProduit(nonExistingProduct);
         assertFalse(produitService.produits.containsValue(nonExistingProduct));
     }
+    @Test
+    public void testModifierProduit() {
+        Produit existingProduct = new Produit(1, "pc", 1000.0, 10);
+        produitService.ajouterProduit(existingProduct);
+        Produit nouveauProduit = new Produit(1, "pc jdid", 1200.0, 15);
+        produitService.modifierProduit(1L, nouveauProduit);
+        Produit modifiedProduct = produitService.produits.get(1L);
+        assertEquals(nouveauProduit.getNom(), modifiedProduct.getNom());
+        assertEquals(nouveauProduit.getPrix(), modifiedProduct.getPrix(), 0.001);
+        assertEquals(nouveauProduit.getQte(), modifiedProduct.getQte());
+    }
+    @Test
+    public void testModifierProduitNonExiste()
+    {
+        Produit nonExistingProduct = new Produit(1, "wah wah", 50.0, 30);
+        produitService.modifierProduit(1L, nonExistingProduct);
+        assertNull(produitService.produits.get(1L));
+    }
 }
