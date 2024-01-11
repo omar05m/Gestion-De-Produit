@@ -1,10 +1,5 @@
-target/*
-
-
-# Include Maven Wrapper files
+target/
 !.mvn/wrapper/maven-wrapper.jar
-
-# Exclude generated directories in source directories
 !**/src/main/**/target/
 !**/src/test/**/target/
 
