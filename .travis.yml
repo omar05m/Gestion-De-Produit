@@ -1,18 +1,11 @@
 language: java
-sudo: true
-dist: trusty
-jdk: oraclejdk9
-addons:
-  apt:
-    packages:
-      - oracle-java9-installer
-before_install:
-  - chmod +x mvnw
-
+jdk: openjdk21
+mvn_version: 3.9.5  # Specify a version that works for your project
+script: ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 notifications:
   email:
     recipients:
-      -khalilikafo@gmail.com
-      -omarkof99@gmail.com
+      - khalilikafo@gmail.com
+      - omarkof99@gmail.com
     on_success: always # send email on success
     on_failure: always # send email on failure
