@@ -44,4 +44,17 @@ public class ProduitService {
             afficherProduit(produit);
         }
     }
+ // supprimer un produits
+ 	public void supprimerProduit(Produit produit) {
+ 	    try {
+ 	        if (produits.containsValue(produit)) {
+ 	            produits.values().remove(produit);
+ 	            System.out.println("Produit supprime ");
+ 	        } else {
+ 	            throw new IllegalArgumentException("Le produit existe pas");
+ 	        }
+ 	    } catch (IllegalArgumentException e) {
+ 	        System.err.println("Exception : " + e.getMessage());
+ 	    }
+ 	}
 }
