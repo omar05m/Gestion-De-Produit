@@ -13,6 +13,9 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
+
     <build>
         <finalName>fileAuthentification</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven

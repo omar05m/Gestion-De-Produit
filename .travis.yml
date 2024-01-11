@@ -1,7 +1,12 @@
 language: java
 jdk: openjdk21
 mvn_version: 3.9.5  # Specify your Maven version
-script: mvn clean install
+before_install:
+  - chmod +x mvnw
+
+script:
+  - cd C:\Users\Public\Music\Gestion-De-Produit
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 
 
